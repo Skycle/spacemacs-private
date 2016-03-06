@@ -60,10 +60,10 @@ values."
      ;; racket
      gtags
      ;; eyebrowse
-     ;;(colors :variables
-     ;;        colors-enable-nyan-cat-progress-bar t)
-     ;;(spacemacs-layouts :variables layouts-enable-autosave t
-     ;;                   layouts-autosave-delay 300)
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar t)
+     (spacemacs-layouts :variables layouts-enable-autosave t
+                        layouts-autosave-delay 300)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -81,7 +81,7 @@ values."
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/bash")
      (chinese :variables chinese-default-input-method 'wubi
-              ;;chinese-enable-fcitx t
+              chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      zilongshanren
      guanghui
