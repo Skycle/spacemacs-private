@@ -80,9 +80,9 @@ values."
             shell-default-position 'full
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/bash")
-     ;;(chinese :variables chinese-default-input-method 'wubi
-     ;;         chinese-enable-fcitx t
-     ;;         chinese-enable-youdao-dict t)
+     (chinese :variables chinese-default-input-method 'wubi
+              ;;chinese-enable-fcitx t
+              chinese-enable-youdao-dict t)
      zilongshanren
      guanghui
      )
