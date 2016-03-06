@@ -34,6 +34,7 @@ values."
                       version-control-global-margin t)
      osx
      semantic                           ; too slow
+     emacs-lisp
      markdown
      (vinegar :variables vinegar-reuse-dired-buffer t)
      org
@@ -42,29 +43,27 @@ values."
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
      yaml
-     ;; (ruby :variables ruby-version-manager 'rvm)
+     ;; version-control
      python
-     lua
+     ;;lua
      html
      command-log
      javascript
-     ;; restclient
-     emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
      ;; dash
      ;; emoji
-     ;; ycmd
+     ycmd
      ;; fasd
-     ;; deft
+     deft
      ;; elfeed
-     ranger
+     ;;ranger
      ;; racket
      gtags
-     (spacemacs-layouts :variables layouts-enable-autosave t
-                        layouts-autosave-delay 300)
      ;; eyebrowse
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar t)
+     ;;(colors :variables
+     ;;        colors-enable-nyan-cat-progress-bar t)
+     ;;(spacemacs-layouts :variables layouts-enable-autosave t
+     ;;                   layouts-autosave-delay 300)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -80,18 +79,20 @@ values."
      (shell :variables
             shell-default-position 'full
             shell-default-shell 'ansi-term
-            shell-default-term-shell "/bin/zsh")
-     (chinese :variables chinese-default-input-method 'wubi
-              chinese-enable-fcitx t
-              chinese-enable-youdao-dict t)
+            shell-default-term-shell "/bin/bash")
+     ;;(chinese :variables chinese-default-input-method 'wubi
+     ;;         chinese-enable-fcitx t
+     ;;         chinese-enable-youdao-dict t)
      zilongshanren
-     guanghui)
+     guanghui
+     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
+   ;;dotspacemacs-excluded-packages '()
    dotspacemacs-excluded-packages '(magit-gh-pulls
                                     magit-gitflow
                                     evil-mc
@@ -145,6 +146,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
+   ;;dotspacemacs-elpa-https t
    dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
@@ -155,6 +157,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
+   ;; dotspacemacs-editing-style 'emacs
    dotspacemacs-editing-style 'vim
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -177,6 +180,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
+   ;;dotspacemacs-themes '(spacemacs-dark
+   ;;                      spacemacs-light
+   ;;                      solarized-light
+   ;;                      solarized-dark
+   ;;                      leuven
+   ;;                      monokai
+   ;;                      zenburn)
    dotspacemacs-themes '(monokai
                          solarized-light
                          leuven
@@ -187,7 +197,7 @@ values."
                          ;; solarized-dark
                          ;; zenburn
                          )
-   ;; If non nil the cursor color matches the state color.
+   ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
@@ -209,6 +219,7 @@ values."
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
    ;; (default "SPC")
+   ;;dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-emacs-command-key ":"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
@@ -218,6 +229,7 @@ values."
    ;; works in the GUI. (default nil)
    dotspacemacs-distinguish-gui-tab nil
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
+   ;; dotspacemacs-remap-Y-to-y$ nil
    dotspacemacs-remap-Y-to-y$ t
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
@@ -272,7 +284,8 @@ values."
    dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
-   ;; (Emacs 24.4+ only)
+   ;; (default nil) (Emacs 24.4+ only)
+   ;; dotspacemacs-maximized-at-startup nil
    dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -291,17 +304,20 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
+   ;; dotspacemacs-smooth-scrolling t
    dotspacemacs-smooth-scrolling nil
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   ;; dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
+   ;; dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-smart-closing-parenthesis t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
@@ -323,14 +339,26 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
+   ;; dotspacemacs-whitespace-cleanup nil
    dotspacemacs-whitespace-cleanup 'changed
    ))
+
+
+(defun add-subdirs-to-load-path (dir)
+  "Recursive add directories to `load-path'."
+  (let ((default-directory (file-name-as-directory dir)))
+    (add-to-list 'load-path dir)
+    (normal-top-level-add-subdirs-to-load-path)))
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  ;; use apsell as ispell backend  
+  ;;(setq-default ispell-program-name "aspell")  
+  ;; use American English as ispell default dictionary  
+  ;;(ispell-change-dictionary "american" t)  
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
@@ -338,13 +366,14 @@ in `dotspacemacs/user-config'."
   ;; ss proxy. But it will cause anacond-mode failed.
   (setq socks-server '("Default server" "127.0.0.1" 1080 5))
   (setq evil-shift-round nil)
+  (add-subdirs-to-load-path "~/.emacs.d/custom/")
+  (add-subdirs-to-load-path "~/.emacs.d/elpa/")
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
-
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration. You are free to put any user code."
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (spacemacs/system-is-mac)
@@ -359,16 +388,15 @@ layers configuration."
     (while bindings
       (define-key keymap (pop bindings) (pop bindings))))
   (bb/define-key evil-normal-state-map
-    "+" 'spacemacs/evil-numbers-increase
-    "_" 'spacemacs/evil-numbers-decrease
-    "\\" 'evil-repeat-find-char-reverse
-    "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
-    "]s" (lambda (n) (interactive "p")
-           (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
+                 "+" 'spacemacs/evil-numbers-increase
+                 "_" 'spacemacs/evil-numbers-decrease
+                 "\\" 'evil-repeat-find-char-reverse
+                 "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
+                 "]s" (lambda (n) (interactive "p")
+                        (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
-  (bb/define-key company-active-map
-    (kbd "C-w") 'evil-delete-backward-word)
-
+  ;;(bb/define-key company-active-map
+  ;;               (kbd "C-w") 'evil-delete-backward-word)
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word))
 
@@ -379,7 +407,7 @@ layers configuration."
   (add-hook 'org-mode-hook 'auto-fill-mode)
 
   (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode)
-  (define-key helm-find-files-map (kbd "s-c") 'helm-ff-run-copy-file)
+  ;;(define-key helm-find-files-map (kbd "s-c") 'helm-ff-run-copy-file)
 
   ;; http://emacsredux.com/blog/2014/04/05/which-function-mode/
   ;; when editing js file, this feature is very useful
@@ -432,8 +460,16 @@ layers configuration."
         (unless (file-exists-p dir)
           (make-directory dir t)))))
 
-  )
 
+
+  (require 'init-org)
+  (require 'init-org-gtd)
+  (require 'init-org-tex)
+  ;;(require 'init-org-key)
+
+  )
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
 
+;; Do not write anything past this comment. This is where Emacs will
+;; auto-generate custom variable definitions.
