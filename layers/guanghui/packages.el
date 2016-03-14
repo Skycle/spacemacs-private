@@ -321,13 +321,13 @@
     ;; (define-key evil-emacs-state-map [escape] 'evil-normal-state)
     ))
 
-(defun guanghui/init-helm-github-stars ()
-  (use-package helm-github-stars
-    :defer t
-    :config
-    (progn
-      (setq helm-github-stars-username "zilongshanren")
-      (setq helm-github-stars-cache-file "~/.emacs.d/.cache/hgs-cache"))))
+;;(defun guanghui/init-helm-github-stars ()
+;;  (use-package helm-github-stars
+;;    :defer t
+;;    :config
+;;    (progn
+;;      (setq helm-github-stars-username "zilongshanren")
+;;      (setq helm-github-stars-cache-file "~/.emacs.d/.cache/hgs-cache"))))
 
 (defun guanghui/init-org-octopress ()
   (use-package org-octopress
@@ -525,8 +525,8 @@
 (defun guanghui/post-init-evil-escape ()
   (setq evil-escape-delay 0.2))
 
-(defun guanghui/post-init-org-bullets ()
-  (setq org-bullets-bullet-list '("🐉" "🐠" "🐬" "🐤")))
+;;(defun guanghui/post-init-org-bullets ()
+;;  (setq org-bullets-bullet-list '("🐉" "🐠" "🐬" "🐤")))
 
 (defun guanghui/post-init-find-file-in-project ()
   (progn
@@ -617,7 +617,7 @@
       (setq org-default-notes-file "~/org-notes/gtd.org")
 
       (with-eval-after-load 'org-agenda
-        (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+        ;;(define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
         (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
           "." 'spacemacs/org-agenda-transient-state/body)
         )

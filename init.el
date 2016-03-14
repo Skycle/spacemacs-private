@@ -63,8 +63,8 @@ values."
      (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
      ;; eyebrowse
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar t)
+     ;;(colors :variables
+     ;;        colors-enable-nyan-cat-progress-bar t)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -81,11 +81,12 @@ values."
             shell-default-position 'full
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/zsh")
-     (chinese :variables chinese-default-input-method 'wubi
-              chinese-enable-fcitx t
-              chinese-enable-youdao-dict t)
+     ;;(chinese :variables chinese-default-input-method 'wubi
+     ;;         chinese-enable-fcitx t
+     ;;         chinese-enable-youdao-dict t)
      zilongshanren
-     guanghui)
+     guanghui
+     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the

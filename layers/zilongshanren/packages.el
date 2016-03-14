@@ -260,19 +260,19 @@ open and unsaved."
         (interactive)
         (find-alternate-file ".."))
 
-      (evilified-state-evilify-map dired-mode-map
-        :mode dired-mode
-        :bindings
-        (kbd "C-k") 'zilongshanren/dired-up-directory
-        "<RET>" 'dired-find-alternate-file
-        "E" 'dired-toggle-read-only
-        "C" 'dired-do-copy
-        "<mouse-2>" 'my-dired-find-file
-        "`" 'dired-open-term
-        "p" 'peep-dired-prev-file
-        "n" 'peep-dired-next-file
-        "z" 'dired-get-size
-        "c" 'dired-copy-file-here)
+      ;; (evilified-state-evilify-map dired-mode-map
+      ;;   :mode dired-mode
+      ;;   :bindings
+      ;;   (kbd "C-k") 'zilongshanren/dired-up-directory
+      ;;   "<RET>" 'dired-find-alternate-file
+      ;;   "E" 'dired-toggle-read-only
+      ;;   "C" 'dired-do-copy
+      ;;   "<mouse-2>" 'my-dired-find-file
+      ;;   "`" 'dired-open-term
+      ;;   "p" 'peep-dired-prev-file
+      ;;   "n" 'peep-dired-next-file
+      ;;   "z" 'dired-get-size
+      ;;   "c" 'dired-copy-file-here)
       )
     :defer t
     )
